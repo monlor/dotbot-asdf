@@ -123,7 +123,7 @@ class Brew(dotbot.Plugin):
             self._log.lowinfo(message)
 
         if self.asdf_location:
-            command = f"source {self.asdf_location} && {command}"
+            command = f". {self.asdf_location} && {command}"
         if self._system_sh_is_dash():
             # dash doesn't overwrite $SHELL so lets try to use that.
             shell = getenv("SHELL", default="/usr/bin/bash")
